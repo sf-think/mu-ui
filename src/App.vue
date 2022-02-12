@@ -1,14 +1,15 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Murphy from './components/Murphy.vue'
 
 
 </script>
 
 <template>
-  <Murphy></Murphy>
-  <div>hi</div>
+  <div>导航栏 |
+    <router-link to="/">Murphy</router-link> |
+    <router-link to="/x">Murphy2</router-link>
+  </div>
+  <hr>
+  <router-view/>
 </template>
 
 <style>
