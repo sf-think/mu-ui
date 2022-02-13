@@ -4,12 +4,7 @@
 </script>
 
 <template>
-  <div>导航栏 |
-    <router-link to="/">Murphy</router-link> |
-    <router-link to="/x">Murphy2</router-link>
-  </div>
-  <hr>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
