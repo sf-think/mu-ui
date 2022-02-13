@@ -9,7 +9,9 @@ import { provide, ref } from "vue"
 export default {
   name: 'App',
   setup() {
-    const asideVisible = ref(false)
+    const width = document.documentElement.clientWidth
+    
+    const asideVisible = ref(width <= 500 ? false : true)
     // provide 可以提供一个变量给子组件使用
     provide('asideVisible', asideVisible) // set
   }
