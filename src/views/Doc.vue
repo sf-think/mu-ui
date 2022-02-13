@@ -1,25 +1,21 @@
 <template>
     <div>
         <Topnav />
-        <div class="topnav">
-            <div class="logo"></div>
-            <div class="menu"></div>
-        </div>
-        <div class="content">
-            <aside>
+        <div class="content" >
+            <aside v-if="asideVisible">
                 <h2>组件列表</h2>
                 <ol>
                     <li>
-                        <rounter-link to="/doc/switch">Switch 组件</rounter-link>
+                        <router-link to="/doc/switch">Switch 组件</router-link>
                     </li>
                     <li>
-                        <rounter-link to="/doc/button">Button 组件</rounter-link>
+                        <router-link to="/doc/button">Button 组件</router-link>
                     </li>
                     <li>
-                        <rounter-link to="/doc/dialog">Dialog 组件</rounter-link>
+                        <router-link to="/doc/dialog">Dialog 组件</router-link>
                     </li>
                     <li>
-                        <rounter-link to="/doc/tabs">Tabs 组件</rounter-link>
+                        <router-link to="/doc/tabs">Tabs 组件</router-link>
                     </li>
                 </ol>
             </aside>
@@ -29,26 +25,34 @@
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue'
+import { inject, Ref } from "vue"
 export default {
-    components: { Topnav }
+    components: { Topnav },
+    setup() {
+        // inject 可以获取到父组件通过 provide 传过来的变量
+        const asideVisible = inject<Ref<boolean>>('xxx') // get
+        console.log('Doc aside 获取的 asideVisible 为 ' + asideVisible?.value)
+        return { asideVisible }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  > h2 {
-    margin-bottom: 4px;
-  }
-  > ol {
-    > li {
-      padding: 4px 0;
+    background: lightblue;
+    width: 150px;
+    padding: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 70px;
+    > h2 {
+        margin-bottom: 4px;
     }
-  }
+    > ol {
+        > li {
+            padding: 4px 0;
+        }
+    }
 }
 </style> 
