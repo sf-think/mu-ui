@@ -11,7 +11,7 @@ export default {
   setup() {
     const asideVisible = ref(false)
     // provide 可以提供一个变量给子组件使用
-    provide('xxx', asideVisible) // set
+    provide('asideVisible', asideVisible) // set
   }
 }
 

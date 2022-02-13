@@ -14,8 +14,7 @@ import { inject, Ref } from "vue"
 export default {
     setup() {
         // inject 可以获取到父组件通过 provide 传过来的变量
-        const asideVisible = inject<Ref<boolean>>('xxx') // get
-        console.log('topnav 获取的 asideVisible 为 ' + asideVisible?.value)
+        const asideVisible = inject<Ref<boolean>>('asideVisible') // get
         const toggleMenu = ()=>{
             asideVisible.value = !asideVisible.value
         }

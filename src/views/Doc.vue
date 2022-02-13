@@ -30,8 +30,7 @@ export default {
     components: { Topnav },
     setup() {
         // inject 可以获取到父组件通过 provide 传过来的变量
-        const asideVisible = inject<Ref<boolean>>('xxx') // get
-        console.log('Doc aside 获取的 asideVisible 为 ' + asideVisible?.value)
+        const asideVisible = inject<Ref<boolean>>('asideVisible') // get
         return { asideVisible }
     }
 }
