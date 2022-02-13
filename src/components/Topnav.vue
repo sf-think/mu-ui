@@ -11,8 +11,9 @@
 
 <script lang="ts">
 import { inject, Ref } from "vue"
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
     setup() {
         // inject 可以获取到父组件通过 provide 传过来的变量
         const asideVisible = inject<Ref<boolean>>('asideVisible') // get
@@ -21,7 +22,7 @@ export default {
         }
         return { toggleAside }
     }
-}
+})
 </script>
 
 <style lang="scss" scoped>

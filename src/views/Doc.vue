@@ -89,4 +89,9 @@ aside {
         overflow: auto;
     }
 }
+@media (max-width: 500px) {
+    aside {
+        display: none;
+    }
+}
 </style> 
