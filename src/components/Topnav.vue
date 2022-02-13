@@ -1,10 +1,13 @@
 <template>
     <div class="topnav">
-        <div class="logo" @click="toggleMenu">LOGO</div>
+        <div class="logo" @click="toggleAside">LOGO</div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
         </ul>
+        <span class="toggleAside">
+
+        </span>
     </div>
 </template>
 
@@ -15,10 +18,10 @@ export default {
     setup() {
         // inject 可以获取到父组件通过 provide 传过来的变量
         const asideVisible = inject<Ref<boolean>>('asideVisible') // get
-        const toggleMenu = ()=>{
+        const toggleAside = () => {
             asideVisible.value = !asideVisible.value
         }
-        return {toggleMenu}
+        return { toggleAside }
     }
 }
 </script>
@@ -40,6 +43,17 @@ export default {
         flex-wrap: nowrap;
         > li {
             margin: 0 1em;
+        }
+    }
+    > .toggleAside {
+        
+    }
+    @media (max-width: 500px) {
+        > .logo {
+            margin: 0 auto;
+        }
+        > .menu {
+            display: none;
         }
     }
 }
