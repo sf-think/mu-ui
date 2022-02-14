@@ -3,7 +3,7 @@
         <!-- $event 的值为 emit 的第二个参数 -->
         <!-- <Switch :value="y" @update:input="y = $event" /> -->
         <!-- v3 v-model 简化版-->
-        <Switch v-model:value="y"  />
+        <Switch v-model:value="bool"  />
 
     </div>
 </template>
@@ -15,8 +15,9 @@ import { defineComponent } from "vue";
 export default defineComponent({
     components: { Switch },
     setup() {
-        const y = ref(true)
-        return { y }
+        // ref 创建一个内部数据 
+        const bool = ref(true)
+        return { bool }
     }
 })
 </script>

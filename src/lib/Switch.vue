@@ -13,6 +13,7 @@ export default defineComponent({
     props: {
         value: Boolean
     },
+    // 在 setup 里 return 一个函数的作用与 methods 一致
     setup(props, context) {
         const toggle = () => {
             // 事件名必须以 update: 开头
@@ -30,29 +31,40 @@ button {
     height: $h;
     width: $h * 2;
     border: none;
-    background: grey;
+    background: #bfbfbf;
     border-radius: $h/2;
     position: relative;
-}
 
-span {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: $h2;
-    width: $h2;
-    background: white;
-    border-radius: $h2 / 2;
-    transition: left 250ms;
-}
+    > span {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        height: $h2;
+        width: $h2;
+        background: white;
+        border-radius: $h2 / 2;
+        transition: all 250ms;
+    }
+    &.checked {
+        background: #1890ff;
+        > span {
+            left: calc(100% - #{$h2} - 2px);
+        }
+    }
 
-button.checked {
-    background: #1890ff;
-}
-button.checked > span {
-    left: calc(100% - #{$h2} - 2px);
-}
-button:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
+
+    &:active {
+        > span {
+            width: $h2 + 4px;
+        }
+    }
+    &.checked:active {
+        > span {
+            margin-left: -4px;
+        }
+    }
 }
 </style>
