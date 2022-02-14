@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggle" :class="{ checked: value }">
+    <button class="mu-Switch" @click="toggle" :class="{ 'mu-checked': value }">
         <span></span>
     </button>
 </template>
@@ -27,7 +27,7 @@ export default defineComponent({
 <style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.mu-Switch {
     height: $h;
     width: $h * 2;
     border: none;
@@ -45,7 +45,7 @@ button {
         border-radius: $h2 / 2;
         transition: all 250ms;
     }
-    &.checked {
+    &.mu-checked {
         background: #1890ff;
         > span {
             left: calc(100% - #{$h2} - 2px);
@@ -61,7 +61,7 @@ button {
             width: $h2 + 4px;
         }
     }
-    &.checked:active {
+    &.mu-checked:active {
         > span {
             margin-left: -4px;
         }
