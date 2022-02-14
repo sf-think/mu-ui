@@ -7,6 +7,12 @@
         <Button theme="link">Hello</Button>
         <Button theme="text">Hello</Button>
     </div>
+    <h1>示例 2</h1>
+    <div>
+        <Button size="big">大按钮</Button>
+        <Button>普通按钮</Button>
+        <Button size="small">小按钮</Button>
+    </div>
 </template>
 
 <script lang="ts">
@@ -16,10 +22,10 @@ import Button from "../lib/Button.vue";
 export default defineComponent({
     components: { Button },
     setup() {
-        const onClick = ()=> {
+        const onClick = () => {
             console.log('hi')
         }
-        return {onClick}
+        return { onClick }
     }
 })
 </script>

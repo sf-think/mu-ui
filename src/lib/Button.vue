@@ -1,19 +1,33 @@
 <template>
-    <button class="mu-button" :class="`mu-theme-${theme}`">
+    <button class="mu-button" :class="classes">
         <slot />
     </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 
 export default defineComponent({
     props: {
         theme: {
             type: String,
             default: 'button'
+        },
+        size: {
+            type: String,
+            default: "normal"
         }
     },
+    setup(props) {
+        const { theme, size } = props
+        const classes = computed(() => {
+            return {
+                [`mu-theme-${theme}`]: theme,
+                [`mu-size-${size}`]: size,
+            }
+        })
+        return { classes }
+    }
 })
 </script>
 
@@ -54,6 +68,36 @@ $radius: 4px;
     // 兼容 firefox
     &::-moz-focus-inner {
         border: 0;
+    }
+    &.mu-theme-link {
+        border-color: transparent;
+        box-shadow: none;
+        color: $blue;
+        &:hover,
+        &:focus {
+            color: lighten($blue, 10%);
+        }
+    }
+    &.mu-theme-text {
+        border-color: transparent;
+        box-shadow: none;
+        color: inherit;
+        &:hover,
+        &:focus {
+            background: darken(white, 5%);
+        }
+    }
+    &.mu-theme-button {
+        &.mu-size-big {
+            font-size: 24px;
+            height: 48px;
+            padding: 0 16px;
+        }
+        &.mu-size-small {
+            font-size: 12px;
+            height: 20px;
+            padding: 0 4px;
+        }
     }
 }
 </style>
