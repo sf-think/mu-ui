@@ -2,7 +2,7 @@
     <div>Button 示例</div>
     <h1>示例 1</h1>
     <div>
-        <Button>你好</Button>
+        <Button>Hello</Button>
         <Button theme="button">Hello</Button>
         <Button theme="link">Hello</Button>
         <Button theme="text">Hello</Button>
