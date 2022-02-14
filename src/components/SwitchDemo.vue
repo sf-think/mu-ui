@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Switch :value="y" @input="y = $event" />
+        <!-- $event 的值为 emit 的第二个参数 -->
+        <!-- <Switch :value="y" @update:input="y = $event" /> -->
+        <!-- v3 v-model 简化版-->
+        <Switch v-model:value="y"  />
+
     </div>
 </template>
 <script lang="ts">

@@ -9,12 +9,14 @@ import { ref } from "vue"
 import { defineComponent } from "vue";
 
 export default defineComponent({
+    // props 接收父组件传过来的 value
     props: {
         value: Boolean
     },
     setup(props, context) {
         const toggle = () => {
-            context.emit('input', !props.value)
+            // 事件名必须以 update: 开头
+            context.emit('update:value', !props.value)
         }
         return { toggle }
     }
@@ -45,7 +47,7 @@ span {
 }
 
 button.checked {
-    background: blue;
+    background: #1890ff;
 }
 button.checked > span {
     left: calc(100% - #{$h2} - 2px);
