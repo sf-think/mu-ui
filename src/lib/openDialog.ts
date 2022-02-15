@@ -17,6 +17,7 @@ export const openDialog = (options: {
     render() {
       return h(
         Dialog,
+        // Dialog 本身属性
         {
           visible: true,
           "onUpdate:visible": (newVisible: boolean) => {
@@ -27,6 +28,7 @@ export const openDialog = (options: {
           ok,
           cancel,
         },
+        // 插槽属性
         { title, content }
       );
     },
