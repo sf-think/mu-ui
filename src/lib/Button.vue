@@ -13,8 +13,7 @@ export default defineComponent({
         theme: {
             type: String,
             default: 'button'
-        },
-        size: {
+        }, size: {
             type: String,
             default: "normal"
         }, level: {
