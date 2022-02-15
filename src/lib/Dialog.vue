@@ -1,21 +1,25 @@
 <template>
     <template v-if="visible">
-        <div class="mu-dialog-overlay" @click="OnClickOverlay"></div>
-        <div class="mu-dialog-wrapper">
-            <div class="mu-dialog">
-                <header>
-                    <slot name="title" />
-                    <span class="mu-dialog-close" @click="close"></span>
-                </header>
-                <main>
-                    <slot name="content" />
-                </main>
-                <footer>
-                    <Button level="main" @click="ok">OK</Button>
-                    <Button @click="cancel">Cancel</Button>
-                </footer>
+        <!-- Teleport 将下面的元素转移到 body 里-->
+        <!-- 防止 Dialog 被遮盖 -->
+        <Teleport to="body">
+            <div class="mu-dialog-overlay" @click="OnClickOverlay"></div>
+            <div class="mu-dialog-wrapper">
+                <div class="mu-dialog">
+                    <header>
+                        <slot name="title" />
+                        <span class="mu-dialog-close" @click="close"></span>
+                    </header>
+                    <main>
+                        <slot name="content" />
+                    </main>
+                    <footer>
+                        <Button level="main" @click="ok">OK</Button>
+                        <Button @click="cancel">Cancel</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
+        </Teleport>
     </template>
 </template>
 
