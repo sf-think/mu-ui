@@ -3,8 +3,8 @@ import { createApp, h } from "vue";
 export const openDialog = (options: {
   title: any;
   content: any;
-  ok: any;
-  cancel: any;
+  ok: Function;
+  cancel: Function;
 }) => {
   const { title, content, ok, cancel } = options;
   const div = document.createElement("div");
@@ -27,6 +27,7 @@ export const openDialog = (options: {
           },
           ok,
           cancel,
+          closeOnClickOverlay: "",
         },
         // 插槽属性
         { title, content }
