@@ -14,12 +14,16 @@
             <p>第二行字</p>
         </template>
     </Dialog>
+    <h1>示例 2</h1>
+    <Button @click="showDialog">show</Button>
 </template>
 
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
-import { defineComponent, ref } from "vue";
+
+import { defineComponent, ref, h } from "vue";
+import { openDialog } from "../lib/openDialog";
 
 export default defineComponent({
     components: {
@@ -35,7 +39,19 @@ export default defineComponent({
         }
         const f2 = () => {
         }
-        return { x, toggle, f1, f2 }
+        const showDialog = () => {
+            openDialog({
+                title: "标题",
+                content: "内容",
+                ok() {
+                    console.log('ok')
+                },
+                cancel() {
+                    console.log('cancel')
+                }
+            })
+        }
+        return { x, toggle, f1, f2, showDialog }
     }
 })
 
