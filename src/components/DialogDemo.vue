@@ -5,7 +5,15 @@
     <!-- 旧写法 -->
     <!-- <Dialog :visible="x" @update:visible="x = $event"></Dialog> -->
     <!-- 简化版 -->
-    <Dialog v-model:visible="x" :closeOnClickOverlay="true" :ok="f1" :cancel="f2"></Dialog>
+    <Dialog v-model:visible="x" :closeOnClickOverlay="true" :ok="f1" :cancel="f2">
+        <template v-slot:title>
+            <strong>标题</strong>
+        </template>
+        <template v-slot:content>
+            <p>第一行字</p>
+            <p>第二行字</p>
+        </template>
+    </Dialog>
 </template>
 
 <script lang="ts">
