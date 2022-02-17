@@ -1,7 +1,7 @@
 <template>
     <div class="mu-tabs">
         <div class="mu-tabs-nav">
-            <div class="mu-tabs-nav-item" v-for="(t, index) in titles" :key="index">{{ t }}</div>
+            <div class="mu-tabs-nav-item" :class="{selected: t === selected}" v-for="(t, index) in titles" :key="index">{{ t }}</div>
         </div>
         <div class="mu-tabs-content">
             <component
@@ -19,6 +19,11 @@ import { defineComponent } from 'vue';
 import Tab from './Tab.vue'
 
 export default defineComponent({
+    props: {
+        selected: {
+            type: String
+        }
+    },
     setup(props, context) {
         // 获取子组件内容
         const defaults = context.slots.default()

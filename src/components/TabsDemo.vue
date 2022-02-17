@@ -1,8 +1,8 @@
 <template>
     <div>Tabs 的文档</div>
-    <Tabs>
-        <Tab title="导航 1">内容 1</Tab>
-        <Tab title="导航 2">内容 2</Tab>
+    <Tabs selected="导航1">
+        <Tab title="导航1">内容1</Tab>
+        <Tab title="导航2">内容2</Tab>
     </Tabs>
 </template>
 
