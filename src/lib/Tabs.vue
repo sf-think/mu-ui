@@ -1,11 +1,18 @@
 <template>
     <div class="mu-tabs">
         <div class="mu-tabs-nav">
-            <div class="mu-tabs-nav-item" :class="{selected: t === selected}" v-for="(t, index) in titles" :key="index">{{ t }}</div>
+            <div
+                class="mu-tabs-nav-item"
+                :class="{ selected: t === selected }"
+                v-for="(t, index) in titles"
+                :key="index"
+                @click="select(t)"
+            >{{ t }}</div>
         </div>
         <div class="mu-tabs-content">
             <component
                 class="mu-tabs-content-item"
+                :class="{ selected: c.props.title === selected }"
                 v-for="(c, index) in defaults"
                 :is="c"
                 :key="index"
@@ -38,8 +45,11 @@ export default defineComponent({
             return tag.props.title
 
         })
+        const select = (title: string) => {
+            context.emit('update:selected', title)
+        }
         return {
-            defaults, titles
+            defaults, titles, select
         }
     }
 })
@@ -68,6 +78,12 @@ $border-color: #d9d9d9;
     }
     &-content {
         padding: 8px 0;
+        &-item {
+            display: none;
+            &.selected {
+                display: block;
+            }
+        }
     }
 }
 </style>
