@@ -34,6 +34,7 @@ export default defineComponent({
         }
     },
     setup(props, context) {
+        // ts 泛型 <HTMLDivElement>
         const navItems = ref<HTMLDivElement[]>([])
         const indicator = ref<HTMLDivElement>(null)
         const container = ref<HTMLDivElement>(null)
@@ -42,9 +43,10 @@ export default defineComponent({
             // 获取选中元素
             const result = divs.filter(div => div.classList
                 .contains('selected'))[0]
-            // 获取元素宽度
+            // el.getBoundingClientRect() 获取元素宽高和位置
             const { width } = result.getBoundingClientRect()
             indicator.value.style.width = width + 'px'
+            // 析构赋值重命名
             const { left: left1 } = container.value.getBoundingClientRect()
             const { left: left2 } = result.getBoundingClientRect()
             const left = left2 - left1
