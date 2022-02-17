@@ -9,17 +9,17 @@
                 <router-link to="/doc">开始</router-link>
             </p>
         </div>
-        <div class="features">
-            <svg class="icon">
-                <use xlink:href="#icon-vue" />
-            </svg>
-            <svg class="icon">
-                <use xlink:href="#icon-ts" />
-            </svg>
-            <svg class="icon">
-                <use xlink:href="#icon-light" />
-            </svg>
-        </div>
+    </div>
+    <div class="features">
+        <svg class="icon">
+            <use xlink:href="#icon-vue" />
+        </svg>
+        <svg class="icon">
+            <use xlink:href="#icon-ts" />
+        </svg>
+        <svg class="icon">
+            <use xlink:href="#icon-light" />
+        </svg>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -41,6 +41,7 @@ $color: #007974;
         rgba(227, 255, 253, 1) 0%,
         rgba(183, 233, 230, 1) 100%
     );
+    clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .features {
