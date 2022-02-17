@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="layout">
-            <Topnav class="nav" />
+            <Topnav toggleMenuButtonVisible class="nav" />
             <div class="content">
                 <aside v-if="asideVisible">
                     <h2>组件列表</h2>

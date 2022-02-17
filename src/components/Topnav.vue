@@ -1,15 +1,20 @@
 <template>
     <div class="topnav">
         <div class="logo">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-logo" />
-            </svg>
+            <router-link to="/">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-logo" />
+                </svg>
+            </router-link>
         </div>
         <ul class="menu">
-            <li>菜单1</li>
-            <li>菜单2</li>
+            <li>
+                <router-link to="/doc">文档</router-link>
+            </li>
         </ul>
-        <span class="toggleAside" @click="toggleAside"></span>
+        <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleAside">
+            <use xlink:href="#icon-menu" />
+        </svg>
     </div>
 </template>
 
@@ -18,6 +23,12 @@ import { inject, Ref } from "vue"
 import { defineComponent } from "vue";
 
 export default defineComponent({
+    props: {
+        toggleMenuButtonVisible: {
+            type: Boolean,
+            default: false
+        }
+    },
     setup() {
         // inject 可以获取到父组件通过 provide 传过来的变量
         const asideVisible = inject<Ref<boolean>>('asideVisible') // get
@@ -41,7 +52,7 @@ export default defineComponent({
     > .logo {
         max-width: 6em;
         margin-right: auto;
-        > svg {
+        > a > svg {
             width: 32px;
             height: 32px;
         }
@@ -55,9 +66,8 @@ export default defineComponent({
         }
     }
     > .toggleAside {
-        width: 24px;
-        height: 24px;
-        background: red;
+        width: 32px;
+        height: 32px;
         position: absolute;
         left: 16px;
         top: 50%;
