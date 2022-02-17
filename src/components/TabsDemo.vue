@@ -3,7 +3,6 @@
     <Tabs>
         <Tab>标签 1</Tab>
         <Tab>标签 2</Tab>
-        <!-- 放置其他标签会抛出异常 -->
     </Tabs>
 </template>
 
