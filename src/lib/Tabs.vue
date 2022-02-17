@@ -5,26 +5,20 @@
                 class="mu-tabs-nav-item"
                 :class="{ selected: t === selected }"
                 v-for="(t, index) in titles"
-                :ref="el => { if (el) navItems[index] = el }"
                 :key="index"
+                :ref="el => { if (el) navItems[index] = el }"
                 @click="select(t)"
             >{{ t }}</div>
             <div class="mu-tabs-nav-indicator" ref="indicator"></div>
         </div>
         <div class="mu-tabs-content">
-            <component
-                class="mu-tabs-content-item"
-                :class="{ selected: c.props.title === selected }"
-                v-for="(c, index) in defaults"
-                :is="c"
-                :key="index"
-            />
+            <component :key="current.props.title" :is="current" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUpdated, ref } from 'vue';
+import { computed, defineComponent, onMounted, onUpdated, ref } from 'vue';
 import Tab from './Tab.vue'
 
 export default defineComponent({
@@ -64,6 +58,9 @@ export default defineComponent({
                 throw new Error('Tabs 子组件必须为 Tab')
             }
         })
+        const current = computed(() => {
+            return defaults.find(tag => tag.props.title === props.selected)
+        })
         // 获取 title 内容
         const titles = defaults.map(tag => {
             return tag.props.title
@@ -73,7 +70,7 @@ export default defineComponent({
             context.emit('update:selected', title)
         }
         return {
-            defaults, titles, select, navItems, indicator, container
+            defaults, current, titles, select, navItems, indicator, container
         }
     }
 })
@@ -113,12 +110,6 @@ $border-color: #d9d9d9;
     }
     &-content {
         padding: 8px 0;
-        &-item {
-            display: none;
-            &.selected {
-                display: block;
-            }
-        }
     }
 }
 </style>
