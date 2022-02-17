@@ -1,7 +1,10 @@
 <template>
     <div>Tabs 的文档</div>
-    <Tabs></Tabs>
-    <Tab></Tab>
+    <Tabs>
+        <Tab>标签 1</Tab>
+        <Tab>标签 2</Tab>
+        <!-- 放置其他标签会抛出异常 -->
+    </Tabs>
 </template>
 
 <script lang="ts">
