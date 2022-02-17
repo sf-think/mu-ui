@@ -91,6 +91,7 @@ aside {
     height: 100%;
     > h2 {
         margin-bottom: 4px;
+        padding: 0px 16px;
     }
     > ol {
         > li {
