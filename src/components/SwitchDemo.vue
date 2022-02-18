@@ -4,35 +4,83 @@
         <div class="demo">
             <h2>常规用法</h2>
             <div class="demo-component">
-                <!-- $event 的值为 emit 的第二个参数 -->
-                <!-- <Switch :value="y" @update:input="y = $event" /> -->
-                <!-- v3 v-model 简化版-->
-                <Switch1Demo />
+                <component :is="Switch1Demo"></component>
             </div>
             <div class="demo-actions">
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <article class="markdown-body">
+                    <pre>
+                        <code>
+&lttemplate&gt
+    &ltSwitch v-model:value="bool" /&gt
+&lt/template&gt
+
+&ltscript lang="ts"&gt
+import Switch from '../lib/Switch.vue'
+import {
+    ref
+} from 'vue'
+export default {
+    components: {
+        Switch,
+    },
+    setup() {
+        const bool = ref(false)
+        return {
+            bool
+        }
+    }
+}
+&lt/script&gt
+                        </code>
+                    </pre>
+                </article>
             </div>
         </div>
         <div class="demo">
             <h2>支持 disabled</h2>
             <div class="demo-component">
-                <Switch2Demo />
+                <component :is="Switch2Demo"></component>
             </div>
             <div class="demo-actions">
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+                <article class="markdown-body">
+                    <pre>
+                        <code>
+&lttemplate&gt
+    &ltSwitch v-model:value="bool" disabled /&gt
+&lt/template&gt
+
+&ltscript lang="ts"&gt
+import Switch from '../lib/Switch.vue'
+import {
+    ref
+} from 'vue'
+export default {
+    components: {
+        Switch,
+    },
+    setup() {
+        const bool = ref(false)
+        return {
+            bool
+        }
+    }
+}
+&lt/script&gt
+                        </code>
+                    </pre>
+                </article>
             </div>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { ref } from 'vue'
-import Switch from '../lib/Switch.vue'
 import Button from '../lib/Button.vue'
 import Switch1Demo from './Switch1.demo.vue'
 import Switch2Demo from './Switch2.demo.vue'
@@ -40,11 +88,15 @@ import Switch2Demo from './Switch2.demo.vue'
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    components: { Switch, Button, Switch1Demo, Switch2Demo },
+    components: { Button },
     setup() {
         // ref 创建一个内部数据 
         const bool = ref(true)
-        return { bool }
+        return {
+            bool,
+            Switch1Demo,
+            Switch2Demo
+        }
     }
 })
 </script>

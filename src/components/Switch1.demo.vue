@@ -1,3 +1,8 @@
+<demo>
+
+</demo>
+
+
 <template>
     <Switch v-model:value="bool" />
 </template>
