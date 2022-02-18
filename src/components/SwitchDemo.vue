@@ -7,7 +7,7 @@
                 <!-- $event 的值为 emit 的第二个参数 -->
                 <!-- <Switch :value="y" @update:input="y = $event" /> -->
                 <!-- v3 v-model 简化版-->
-                <Switch v-model:value="bool" />
+                <Switch1Demo />
             </div>
             <div class="demo-actions">
                 <Button>查看代码</Button>
@@ -19,7 +19,7 @@
         <div class="demo">
             <h2>支持 disabled</h2>
             <div class="demo-component">
-                <Switch v-model:value="bool" disabled />
+                <Switch2Demo />
             </div>
             <div class="demo-actions">
                 <Button>查看代码</Button>
@@ -34,11 +34,13 @@
 import { ref } from 'vue'
 import Switch from '../lib/Switch.vue'
 import Button from '../lib/Button.vue'
+import Switch1Demo from './Switch1.demo.vue'
+import Switch2Demo from './Switch2.demo.vue'
 
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    components: { Switch, Button },
+    components: { Switch, Button, Switch1Demo, Switch2Demo },
     setup() {
         // ref 创建一个内部数据 
         const bool = ref(true)
