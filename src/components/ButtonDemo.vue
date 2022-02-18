@@ -1,5 +1,5 @@
 <template>
-    <h2>Button 示例</h2>
+    <h1>Button组件示例</h1>
     <Demo title="常规用法" :component="Button1Demo">
         <pre class="hljs">
                         <code>
