@@ -9,10 +9,10 @@
         </div>
         <ul class="menu">
             <li>
-                <router-link to="/doc">文档</router-link>
+                <router-link to="/">首页</router-link>
             </li>
         </ul>
-        <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleAside">
+        <svg class="toggleAside" v-if="toggleMenuButtonVisible"  @click="toggleAside">
             <use xlink:href="#icon-menu" />
         </svg>
     </div>
@@ -72,7 +72,6 @@ export default defineComponent({
         left: 16px;
         top: 50%;
         transform: translateY(-50%);
-        display: none;
     }
 
     @media (max-width: 500px) {
