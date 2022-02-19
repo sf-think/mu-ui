@@ -1,11 +1,6 @@
 import Dialog from "./Dialog.vue";
 import { createApp, h } from "vue";
-export const openDialog = (options: {
-  title: any;
-  content: any;
-  ok: Function;
-  cancel: Function;
-}) => {
+export const openDialog = (options) => {
   const { title, content, ok, cancel } = options;
   const div = document.createElement("div");
   document.body.appendChild(div);
@@ -20,7 +15,7 @@ export const openDialog = (options: {
         // Dialog 本身属性
         {
           visible: true,
-          "onUpdate:visible": (newVisible: boolean) => {
+          "onUpdate:visible": (newVisible) => {
             if (newVisible === false) {
               close();
             }

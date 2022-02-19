@@ -28,10 +28,9 @@ export default defineComponent({
         }
     },
     setup(props, context) {
-        // ts 泛型 <HTMLDivElement>
-        const navItems = ref<HTMLDivElement[]>([])
-        const indicator = ref<HTMLDivElement>(null)
-        const container = ref<HTMLDivElement>(null)
+        const navItems = ref([])
+        const indicator = ref(null)
+        const container = ref(null)
         const x = () => {
             const divs = navItems.value
             // 获取选中元素

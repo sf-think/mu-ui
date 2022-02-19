@@ -10,6 +10,7 @@
   "dependencies": {
     "github-markdown-css": "4.0.0",
     "highlight.js": "^11.4.0",
+    "http-server": "^14.1.0",
     "prismjs": "^1.27.0",
     "vue": "^3.2.31",
     "vue-router": "4"
